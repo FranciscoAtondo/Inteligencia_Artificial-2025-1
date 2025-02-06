@@ -75,3 +75,10 @@ donde:
 - \( w_1 \) es la **pendiente** de la recta.
 
 Este enfoque es útil para la implementación de **regresión lineal múltiple** y aprendizaje automático.
+
+# 6/02/2025 - 
+
+Para proyecto se usaran las bibliotecas 
+- NumPy y Matplotlib
+- Regresion Logistica
+- Regularizacion(Opcional) 
