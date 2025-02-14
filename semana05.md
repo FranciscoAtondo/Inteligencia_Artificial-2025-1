@@ -83,4 +83,103 @@ desc_grad(x, y, w_ini, b_ini, n, max_epoch, e_tol)
   
   regresa w,b
 
-  Tarea: Derivada de [d sigma (z)]/dz = sigma(z) (1 - sigma(z))
+# 11/02/2025 - Descenso de Gradiente
+
+El algoritmo se puede dividir en los siguientes pasos:
+
+* Inicialización:
+Se definen los valores iniciales de w y 𝑏.
+
+* Cálculo del Gradiente:
+Se calcula el gradiente de la función de pérdida respecto a w y b.
+
+* Actualización de los Parámetros:
+Se ajustan los valores de 𝑤 y 𝑏 en la dirección del gradiente negativo.
+
+* Criterio de Paro:
+Si la magnitud del gradiente es menor que un umbral 𝑒_tol, el algoritmo se detiene.
+
+Descenso de Gradiente:
+  hist <- []
+  
+  w <- w_ini
+  
+  b <- b_ini
+  
+  Para epoch de 1 en max_epoch:
+
+    V̄_w E_in <- calcula_gradiente(x, y, w, b)
+    
+    d/dx E_in <- calcula_gradiente(x, y, w, b)
+
+    hist.append( calcula-E_in (x, y, w, b))
+
+    w <- w-n V̄_w E_in
+
+    if ||V̄_w E_in || < E_tal:
+      break
+
+    fin para
+
+  regresa w, b
+
+El código incluye la expresión de la derivada de la función de pérdida en un problema de clasificación binaria con función de pérdida logarítmica (Log Loss o Entropía Cruzada):
+
+(Ƨ E_in)/(Ƨ w) = Ƨ/Ƨw 1/m E_(n=1)^M -y^(i) log(ȳ (i)) - (1-y^(i)) log(1-ȳ^(i))
+
+= 1/m E_(i=1)^m (-(y^(i))/ȳ^(i))) (Ƨδ( z^(i))/d(z^(i))) (dz^(i))/d(z^(i)) = 
+
+# 12/02/2025 - Problemas de Busqueda
+
+Tipos de Problemas:
+- Observables
+- No Observables
+- Parcialmente Observables/No Deterministas
+- Estado Desconocido
+
+Consisten de:
+- Estado Espacio
+- Modelo de Transicion
+- Estado Inicial, Objetivo y Funcion de Costo
+- Solucion
+
+Ejemplo - Pacman:
+
+s = { s_1, s_2, ... }
+
+s = (p, t_1, ... , t_a)
+
+p e { 0, ... , 8)
+
+t_i e {0, 1} # |s| = 9 * 2^9
+
+s = (p_1, ... , p_9) # |s| = 9 * 2^8
+
+p_i e {0, 1, 2}
+
+A = {a_1, ... , a_m} acciones legales.
+
+Modelo = <acciones_legales, transicion, costo_local>
+
+acciones_legales: s->p(A) acciones_legales(s)
+
+transicion: s*a->s transicion(s, A) = s
+
+costo_local: s*a -> R costo_local(s, a) = c
+
+# 13/02/2025 - Modelo de Busqueda
+
+class modeloBusqueda:
+  
+  def __init__(self, s, A):
+  
+    self.s = s[:]
+    self.A = A[:]
+
+  def acciones_legales(self, s):
+
+    return self.A[:]
+
+  def transicion(self, s, a):
+
+    raise NotImplementedError('Programa flojito')
